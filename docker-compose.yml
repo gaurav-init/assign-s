@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: groweasy-backend
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      FRONTEND_ORIGIN: http://localhost:5173
+      AI_PROVIDER: ${AI_PROVIDER:-gemini}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.1-flash-lite}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      BATCH_SIZE: ${BATCH_SIZE:-20}
+      AI_CONCURRENCY: ${AI_CONCURRENCY:-3}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_BACKEND_URL: http://localhost:8080
+    container_name: groweasy-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    restart: unless-stopped
