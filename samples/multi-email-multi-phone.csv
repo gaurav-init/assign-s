@@ -1,0 +1,4 @@
+created,name,emails,phones,company,city,status,note
+2026-07-02 09:00,Sameer Ali,"sameer@example.com, sameer.ali@gmail.com","+91 9812340001, +91 9812340002, 9812340003",AliTech,Kolkata,Follow Up,Owner has 3 numbers
+2026-07-02 09:15,Neha Kapoor,"neha@example.com, neha.k@gmail.com, neha.kapoor@yahoo.in",+91 9812340004,Kapoor Consulting,Delhi,Hot,Wants pricing sheet by EOD
+2026-07-02 09:30,Anonymous,,,Skip Inc,,Dead,Both email and phone missing
